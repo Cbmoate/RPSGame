@@ -1,20 +1,67 @@
-var choices = ['rock', 'paper', 'scissors'];
+$( document ).ready(function() {
 
-//computer choice logic
-var computerChoice = Math.random();
-if (computerChoice < 0.33) {
-    computerChoice = "rock";
-} else if (computerChoice > 0.66) {
-    computerChoice = "paper";
-} else {
-    computerChoice = "scissors";
-}
+  $("#rock").button().click(function(){
+    alert("rock");
+    });
+  $("#paper").button().click(function(){
+    alert("paper");
+    }); 
+  $("#scissors").button().click(function(){
+    alert("scissors");
+    }); 
 
-//Counters
-var rounds = 0;
-var wins = 0;
-var loses = 0;
+  var choices = ['rock', 'paper', 'scissors'];
 
-$('#rounds').html(rounds);
-$('#yourScore').html(wins);
-$('#computerScore').html(loses);
+  //computer choice logic
+  var computerChoice = Math.random();
+  if (computerChoice < 0.34) {
+      computerChoice = "rock";
+  } else if (computerChoice > 0.67) {
+      computerChoice = "paper";
+  } else {
+      computerChoice = "scissors";
+  }
+
+  //User Choice
+  var compare = function(choice1, choice2) {
+    if (choice1 === choice2) {
+      document.getElementById("result").innerHTML = "Tie!";
+    }
+    else if (choice1 === "rock") {
+      if (choice2 === "scissors") {
+        document.getElementById("result").innerHTML = "You Win!";
+      }
+      else {
+        document.getElementById("result").innerHTML = "You Lose!";
+      }
+    }
+    else if (choice1 === "paper") {
+      if (choice2 === "rock") {
+        document.getElementById("result").innerHTML = "You Win!";
+      }
+      else if (choice2 ==="scissors") {
+        document.getElementById("result").innerHTML = "You Lose!";
+      }
+    }
+    else if (choice1 === "scissors") {
+      if (choice2 === "rock") {
+        document.getElementById("result").innerHTML = "You Lose!";
+      }
+      else if (choice2 === "paper") {
+        document.getElementById("result").innerHTML = "You Win!";
+      }
+    }
+    else {
+      document.getElementById("result").innerHTML = "ERROR!";
+    }
+  }
+
+  //Counters
+  var rounds = 0;
+  var wins = 0;
+  var loses = 0;
+
+  $('#rounds').html(rounds);
+  $('#yourScore').html(wins);
+  $('#computerScore').html(loses);
+});
