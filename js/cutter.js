@@ -1,12 +1,12 @@
 $( document ).ready(function() {
 
-  $("#rock").button().click(function(){
+  $("#rock").click(function(){
     alert("rock");
     });
-  $("#paper").button().click(function(){
+  $("#paper").click(function(){
     alert("paper");
     }); 
-  $("#scissors").button().click(function(){
+  $("#scissors").click(function(){
     alert("scissors");
     }); 
 
