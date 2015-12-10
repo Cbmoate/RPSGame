@@ -18,11 +18,13 @@
         <button id="scissors">Scissors</button>
       </div>
     </div>
+    <br />
     <div class="row">
-      <div class="col-sm-4 col-offset-4">
-        <button id="go">Fight!</button>
+      <div class="col-sm-4 col-sm-offset-4">
+        <button id="go" data-toggle="modal">Fight!</button>
       </div>
     </div>
+    <br />
     <div class="row">
       <div class="col-sm-4">
         <p>Your Score</p>
@@ -54,16 +56,16 @@
 
  
 
-  <!--
+
   <div id="bigWin" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">You Won!</h4>
+          <h4 class="modal-title">Results!</h4>
         </div>
         <div class="modal-body">
-          <p>You have defeated the Robot!  You're the Master of (mental) Karate and Friendship for everyone!</p>
+          <p id="result"></p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -71,6 +73,8 @@
       </div>
     </div>
   </div>
+
+    <!--
   <div id="oneLoss" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -106,6 +110,7 @@
   -->
 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <script type="text/javascript" src= "js/cutter.js"></script>
 </body>
 </html>
