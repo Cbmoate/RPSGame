@@ -13,3 +13,7 @@ img{
   margin-top: 10px;
   margin-right: 25px;
 }
+
+.modal-title {
+  text-align: center;
+}
