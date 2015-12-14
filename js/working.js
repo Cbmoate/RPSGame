@@ -1,40 +1,46 @@
-var rounds = 1;
-var wins = 0;
-var loses = 0;
-var computerChoice = ["Rock", "Paper", "Scissors"];
-var playerChoice;
-var computerRando = computerChoice[randomIndex];
-var randomIndex = Math.floor(Math.random()*computerChoice.length);
-function theGame(playerChoice, oppChoice) {
-  if(playerChoice === oppChoice){
-    $("#result").html("You got a tie!");
-  } else if (playerChoice === "Rock"){
-  if(oppChoice === "Paper"){
-    $("#result").html("You Lose :(");
-  }else {
-    $("#result").html("You Win");
-  }
-  }
-  else if (playerChoice === "Paper"){
-    if(oppChoice === "Rock"){
-      $("#result").html("You Win :)");
-  }else {
-    $("#result").html("You Lose!");
-  }
-  }
-  else if (playerChoice === "Scissors"){
-    if(oppChoice === "Paper"){
-      $("#result").html("You Win :)");
-  }else {
-    $("#result").html("You Lose!");
-  }
-  }
-} 
-$(document).ready(function() {
-  $(".gameButtons").on("click", function(){
-    playerChoice = $(this).attr('data-choice');
-    $("#go").click(function(){
-    theGame(playerChoice, computerRando);
+$(document).ready(function() { 
+  var rounds = 1;
+  var wins = 0;
+  var loses = 0;
+  var computerChoice = ["Rock", "Paper", "Scissors"];
+  var player;
+
+
+  function theGame(player, computerRando) {
+    if(player === computerRando){
+      $("#result").html("You got a tie, you must train harder!");
+    }
+    else if (player === "Rock"){
+      if(computerRando === "Paper"){
+        $("#result").html("You have brought shame upon your dojo!");
+      }
+      else {
+        $("#result").html("You have vanquished your enemy");
+      }
+    }
+    else if (player === "Paper"){
+      if(computerRando === "Rock"){
+        $("#result").html("You have vanquished your enemy");
+      }
+      else {
+        $("#result").html("You have brought shame upon your dojo!");
+      }
+    }
+    else if (player === "Scissors"){
+      if(computerRando === "Paper"){
+        $("#result").html("You have vanquished your enemy");
+      }
+      else{
+        $("#result").html("You have brought shame upon your dojo!");
+      }
+    }
+  } 
+  $(".choiceButtons").on("click", function(){
     $("#bigWin").modal('show');
+      player = $(this).attr('data-choice');
+      var computerRando = computerChoice[random];
+      var random = Math.floor(Math.random()*computerChoice.length);
+      theGame(player, computerRando);
+      
   });
 });
