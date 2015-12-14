@@ -1,45 +1,50 @@
 $(document).ready(function() { 
   
-  var rounds = 1;
+  var rounds = 2;
   var wins = 0;
   var loses = 0;
-  $('#rounds').html(rounds);
+  $('#rounds').html(rounds-1);
   $('#yourScore').html(wins);
   $('#computerScore').html(loses);
   $("#rules").modal('show');
-
-  var computerChoice = ["Rock", "Paper", "Scissors"];
+  
+  var computerChoices = ["Rock", "Paper", "Scissors"];
   var player;
 
   function theGame(player, computerRando) {
     if(player === computerRando){
       $("#result").html("You got a tie, you must train harder!");
+      rounds--;
+      console.log(rounds)
     }
     else if (player === "Rock"){
-      rounds++;
       if(computerRando === "Paper"){
         $("#result").html("You have failed and brought shame upon your dojo!");
+        loses++;
       }
       else {
         $("#result").html("You have vanquished your enemy");
+        wins++;
       }
     }
     else if (player === "Paper"){
-      rounds++;
       if(computerRando === "Rock"){
         $("#result").html("You have vanquished your enemy");
+        wins++;
       }
       else {
         $("#result").html("You have failed and brought shame upon your dojo!");
+        loses++;
       }
     }
     else if (player === "Scissors"){
-      rounds++;
       if(computerRando === "Paper"){
         $("#result").html("You have vanquished your enemy");
+        wins++;
       }
       else{
         $("#result").html("You have failed and brought shame upon your dojo!");
+        loses++;
       }
     }
   } 
@@ -47,10 +52,14 @@ $(document).ready(function() {
   $(".choiceButtons").on("click", function(){
     $("#bigWin").modal('show');
       player = $(this).attr('data-choice');
-      var random = Math.floor(Math.random()*computerChoice.length);
-      var computerRando = computerChoice[random];
-      theGame(player, computerRando); 
-    if (rounds == 5) {
+      var random = Math.floor(Math.random()*computerChoices.length);
+      var computerRando = computerChoices[random];
+      theGame(player, computerRando);
+      rounds++;
+      $('#rounds').html(rounds-1);
+      $('#yourScore').html(wins);
+      $('#computerScore').html(loses);
+    if (loses == 3 || wins == 3) {
       $("#finishHim").modal('show');
     }
   });
