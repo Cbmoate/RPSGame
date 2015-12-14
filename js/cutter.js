@@ -1,50 +1,39 @@
-$( document ).ready(function() {
-  $('#rounds').html(rounds);
-  $('#yourScore').html(wins);
-  $('#computerScore').html(loses);
-  var computerChoice = ["Rock", "Paper", "Scissors"];
-  var playerChoice;
-
-
-  //fire off game
-  theGame(choice1, choice2) {
-    if (choice1 === choice2) {
-      $("result").HTML = "Tie!  Train harder!";
-    }
-    else if (choice1 === "rock") {
-      if (choice2 === "scissors") {
-        $("result").HTML = "You have vanquished your enemy!";
-      }
-      else {
-        $("result").HTML = "You have brought shame upon your dojo!!";
-      }
-    }
-    else if (choice1 === "paper") {
-      if (choice2 === "rock") {
-        $("result").HTML = "You have vanquished your enemy!";
-      }
-      else if (choice2 ==="scissors") {
-        $("result").HTML = "You have brought shame upon your dojo!!";
-      }
-    }
-    else if (choice1 === "scissors") {
-      if (choice2 === "rock") {
-        $("result").HTML = "You have brought shame upon your dojo!!";
-      }
-      else if (choice2 === "paper") {
-        $("result").HTML = "You have vanquished your enemy!";
-      }
-    }
-    else {
-      $("result").HTML = "ERROR!";
+var rounds = 1;
+var wins = 0;
+var loses = 0;
+var computerChoice = ["Rock", "Paper", "Scissors"];
+var playerChoice;
+function gameLogic(playerChoice, oppChoice) {
+  if(playerChoice === oppChoice){
+    $("#result").html("You got a tie!");
+  } else if (playerChoice === "Rock"){
+  if(oppChoice === "Paper"){
+    $("#result").html("You Lose :(");
+  }else {
+    $("#result").html("You Win");
     }
   }
-
-  $(".choiceButtons").on("click", function(){
-    playerChoice = $(this).attr('data-choice');
-    var randomIndex = Math.floor(Math.random()*computerChoice.length); 
-    var oppChoice = computerChoice[randomIndex];
-    theGame(playerChoice, oppChoice);
-    
+  else if (playerChoice === "Paper"){
+    if(oppChoice === "Rock"){
+      $("#result").html("You Win :)");
+  }else {
+    $("#result").html("You Lose!");
+   }
+  }
+  else if (playerChoice === "Scissors"){
+    if(oppChoice === "Paper"){
+      $("#result").html("You Win :)");
+  }else {
+    $("#result").html("You Lose!");
+   }
+}
+} 
+$(document).ready(function() {
+  $(".gameButtons").on("click", function(){
+    $("#bigWin").modal('show');
+      playerChoice = $(this).attr('data-choice');
+      var randomIndex = Math.floor(Math.random()*computerChoice.length); 
+      var oppChoice = computerChoice[randomIndex];
+      gameLogic(playerChoice, oppChoice);
   });
 });

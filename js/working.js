@@ -2,6 +2,10 @@ $(document).ready(function() {
   var rounds = 1;
   var wins = 0;
   var loses = 0;
+  $('#rounds').html(rounds);
+  $('#yourScore').html(wins);
+  $('#computerScore').html(loses);
+
   var computerChoice = ["Rock", "Paper", "Scissors"];
   var player;
 
@@ -35,12 +39,12 @@ $(document).ready(function() {
       }
     }
   } 
+
   $(".choiceButtons").on("click", function(){
     $("#bigWin").modal('show');
       player = $(this).attr('data-choice');
-      var computerRando = computerChoice[random];
       var random = Math.floor(Math.random()*computerChoice.length);
-      theGame(player, computerRando);
-      
+      var computerRando = computerChoice[random];
+      theGame(player, computerRando); 
   });
 });
