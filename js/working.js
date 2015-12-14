@@ -12,9 +12,11 @@ $(document).ready(function() {
 
   function theGame(player, computerRando) {
     if(player === computerRando){
+      rounds++;
       $("#result").html("You got a tie, you must train harder!");
     }
     else if (player === "Rock"){
+      rounds++;
       if(computerRando === "Paper"){
         $("#result").html("You have brought shame upon your dojo!");
       }
@@ -23,6 +25,7 @@ $(document).ready(function() {
       }
     }
     else if (player === "Paper"){
+      rounds++;
       if(computerRando === "Rock"){
         $("#result").html("You have vanquished your enemy");
       }
@@ -31,6 +34,7 @@ $(document).ready(function() {
       }
     }
     else if (player === "Scissors"){
+      rounds++;
       if(computerRando === "Paper"){
         $("#result").html("You have vanquished your enemy");
       }
