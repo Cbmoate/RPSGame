@@ -51,7 +51,7 @@ $(document).ready(function() {
   } 
 
   $(".choiceButtons").on("click", function(){
-    if (loses < 3 || wins < 3) {
+    if (loses < 3 && wins < 3) {
       $("#bigWin").modal('show');
       player = $(this).attr('data-choice');
       var random = Math.floor(Math.random()*computerChoices.length);
@@ -71,5 +71,15 @@ $(document).ready(function() {
         $("#fatality").html("With a flourish of your ninja skills, you do a spinning heel kick and destroy the Robot's central processor.");
       }
     }
+  });
+
+  $("#reset").on("click", function(){
+  var rounds = 2;
+  var wins = 0;
+  var loses = 0;
+  $('#rounds').html(rounds-1);
+  $('#yourScore').html(wins);
+  $('#computerScore').html(loses); 
+  $("#finishHim").modal('hide');
   });
 });
