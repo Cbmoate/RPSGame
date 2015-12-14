@@ -63,8 +63,8 @@ $(document).ready(function() {
       $('#computerScore').html(loses);
     }
     else if (loses === 3 || wins === 3) {
+      $("#finishHim").modal('show');
       if (loses === 3) {
-        $("#finishHim").modal('show');
         $("#fatality").html("You are a failure!  The Robot Ninja breaks you over his knee and continues along his path of destruction.");
       }
       else{
