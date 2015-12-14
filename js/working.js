@@ -1,5 +1,7 @@
 $(document).ready(function() { 
-  
+    
+  var computerChoices = ["Rock", "Paper", "Scissors"];
+  var player;
   var rounds = 2;
   var wins = 0;
   var loses = 0;
@@ -7,15 +9,14 @@ $(document).ready(function() {
   $('#yourScore').html(wins);
   $('#computerScore').html(loses);
   $("#rules").modal('show');
-  
-  var computerChoices = ["Rock", "Paper", "Scissors"];
-  var player;
+  $("#bigWin").on("click", function(){
+    $(this).modal('hide')
+  });
 
   function theGame(player, computerRando) {
     if(player === computerRando){
       $("#result").html("You got a tie, you must train harder!");
       rounds--;
-      console.log(rounds)
     }
     else if (player === "Rock"){
       if(computerRando === "Paper"){
@@ -50,7 +51,8 @@ $(document).ready(function() {
   } 
 
   $(".choiceButtons").on("click", function(){
-    $("#bigWin").modal('show');
+    if (loses < 3 || wins < 3) {
+      $("#bigWin").modal('show');
       player = $(this).attr('data-choice');
       var random = Math.floor(Math.random()*computerChoices.length);
       var computerRando = computerChoices[random];
@@ -59,8 +61,15 @@ $(document).ready(function() {
       $('#rounds').html(rounds-1);
       $('#yourScore').html(wins);
       $('#computerScore').html(loses);
-    if (loses == 3 || wins == 3) {
+    }
+    else if (loses === 3 || wins === 3) {
       $("#finishHim").modal('show');
+      if (loses === 3) {
+        $("#fatality").html("You are a failure!  The Robot Ninja breaks you over his knee and continues along his path of destruction.");
+      }
+      else{
+        $("#fatality").html("With a flourish of your ninja skills, you do a spinning heel kick and destroy the Robot's central processor.");
+      }
     }
   });
 });
