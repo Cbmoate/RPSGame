@@ -24,13 +24,13 @@ $(document).ready(function() {
         loses++;
       }
       else {
-        $("#result").html("You have vanquished your enemy");
+        $("#result").html("You've hit the Robot.  He's getting weaker!");
         wins++;
       }
     }
     else if (player === "Paper"){
       if(computerRando === "Rock"){
-        $("#result").html("You have vanquished your enemy");
+        $("#result").html("You've hit the Robot.  He's getting weaker!");
         wins++;
       }
       else {
@@ -40,7 +40,7 @@ $(document).ready(function() {
     }
     else if (player === "Scissors"){
       if(computerRando === "Paper"){
-        $("#result").html("You have vanquished your enemy");
+        $("#result").html("You've hit the Robot.  He's getting weaker!");
         wins++;
       }
       else{
