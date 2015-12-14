@@ -18,7 +18,7 @@ $(document).ready(function() {
     else if (player === "Rock"){
       rounds++;
       if(computerRando === "Paper"){
-        $("#result").html("You have brought shame upon your dojo!");
+        $("#result").html("You have failed and brought shame upon your dojo!");
       }
       else {
         $("#result").html("You have vanquished your enemy");
@@ -30,7 +30,7 @@ $(document).ready(function() {
         $("#result").html("You have vanquished your enemy");
       }
       else {
-        $("#result").html("You have brought shame upon your dojo!");
+        $("#result").html("You have failed and brought shame upon your dojo!");
       }
     }
     else if (player === "Scissors"){
@@ -39,7 +39,7 @@ $(document).ready(function() {
         $("#result").html("You have vanquished your enemy");
       }
       else{
-        $("#result").html("You have brought shame upon your dojo!");
+        $("#result").html("You have failed and brought shame upon your dojo!");
       }
     }
   } 

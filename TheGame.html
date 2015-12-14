@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Roshambo</title>
+  <title>Ro-sham-bo Battle</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="stylez.css">
   <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 </head>
 <body>
@@ -10,21 +11,21 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-4">
-        <button class="choiceButtons" data-choice="Rock">Rock</button>
+        <img src="images/shield.svg" class="choiceButtons" data-choice="Rock">Block!</img>
       </div>
       <div class="col-sm-4">
-        <button class="choiceButtons" data-choice="Paper">Paper</button>
+        <img src="images/punch.svg" class="choiceButtons" data-choice="Paper">Punch!</img>
       </div>
       <div class="col-sm-4">
-        <button class="choiceButtons" data-choice="Scissors">Scissors</button>
+        <img src="images/grab.svg" class="choiceButtons" data-choice="Scissors">Grab!</img>
       </div>
     </div>
     <br />
-    <div class="row">
+    <!--<div class="row">
       <div class="col-sm-4 col-sm-offset-4">
         <button id="go" data-toggle="modal">Fight!</button>
       </div>
-    </div>
+    </div>-->
     <br />
     <div class="row">
       <div class="col-sm-4">
